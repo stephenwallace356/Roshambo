@@ -1,0 +1,23 @@
+{
+  "name": "roshambo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "yargs": "^17.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barrym07/roshambo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barrym07/roshambo/issues"
+  },
+  "homepage": "https://github.com/barrym07/roshambo#readme"
+}
