@@ -18,7 +18,7 @@ class Computer {
     } else if (computerLogic === 2) {
       this.output = 'paper';
     } else {
-      this.output = 'Scissors';
+      this.output = 'scissors';
     }
 
   }
@@ -42,11 +42,12 @@ class Game {
       newRock.logic(this.choice, this.computerChoice);
       console.log("rock logic chosen")
     } else if (this.choice === 'paper') {
-      Paper.logic();
+      let newPaper = new Paper();
+      newPaper.logic(this.choice, this.computerChoice);
       console.log("paper logic chosen")
-
     } else {
-      Scissors.logic();
+      let newScissors = new Scissors();
+      newScissors.logic(this.choice, this.computerChoice);
 
       console.log("scissor logic chosen")
     }
@@ -57,53 +58,43 @@ class Game {
 class Rock extends Game {
   constructor(choice, computerChoice) {
     super(choice, computerChoice)
-
-
   }
-
 
   logic() {
-
     if (this.computerChoice === 'rock') {
-      console.log('Player Plays rock!')
-      console.log('Computer Plays rock!')
+      //console.log('Player Plays rock!')
+      // console.log('Computer Plays rock!')
       console.log("Tie!")
     } else if (this.computerChoice === 'paper') {
-      console.log('Player Plays rock!')
-      console.log('Computer Plays paper!')
+      //console.log('Player Plays rock!')
+      // console.log('Computer Plays paper!')
       console.log("Computer wins.")
     } else {
-      console.log('Player Plays rock!')
-      console.log('Computer Plays Scissors!')
+      //console.log('Player Plays rock!')
+      // console.log('Computer Plays Scissors!')
       console.log("Player wins.")
     }
-
-
   }
-
-
-
 }
 
 class Paper extends Game {
   constructor(choice, computerChoice) {
     super(choice, computerChoice)
-
   }
 
   logic(choice, computerChoice) {
     if (this.computerChoice === 'paper') {
-      console.log('Player Plays paper!')
-      console.log('Computer Plays paper!')
+      // console.log('Player Plays paper!')
+      // console.log('Computer Plays paper!')
       console.log("Tie!")
     } else if (this.computerChoice === 'rock') {
-      console.log('Player Plays paper!')
-      console.log('Computer Plays paper!')
-      console.log("Computer wins.")
-    } else {
-      console.log('Player Plays scissors!')
-      console.log('Computer Plays paper!')
+      // console.log('Player Plays paper!')
+      // console.log('Computer Plays rock!')
       console.log("Player wins.")
+    } else {
+      //console.log('Player Plays paper!')
+      // console.log('Computer Plays scissors !')
+      console.log("Computer wins.")
     }
   }
 
@@ -114,28 +105,23 @@ class Paper extends Game {
 class Scissors extends Game {
   constructor(choice, computerChoice) {
     super(choice, computerChoice)
-
-
   }
 
   logic() {
     if (this.computerChoice === 'rock') {
-      console.log('Player Plays scissors!')
-      console.log('Computer Plays rock!')
+      //console.log('Player Plays scissors!')
+      // console.log('Computer Plays rock!')
       console.log("Computer wins!")
     } else if (this.computerChoice === 'paper') {
-      console.log('Player Plays scissors!')
-      console.log('Computer Plays paper!')
+      // console.log('Player Plays scissors!')
+      // console.log('Computer Plays paper!')
       console.log("Player wins.")
     } else {
-      console.log('Player Plays scissors!')
-      console.log('Computer Plays Scissors!')
+      // console.log('Player Plays scissors!')
+      // console.log('Computer Plays Scissors!')
       console.log("Tie.")
     }
   }
-
-
-
 }
 
 
