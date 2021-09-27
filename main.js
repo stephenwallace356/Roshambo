@@ -3,7 +3,7 @@ const { hideBin } = require('yargs/helpers')
 const argv = yargs(hideBin(process.argv)).argv;
 
 const choice = argv.choice;
-//const computerChoice = output;
+
 
 
 class Computer {
@@ -20,61 +20,65 @@ class Computer {
     } else {
       this.output = 'Scissors';
     }
-    //return this.computerChoice;
-    console.log(computerLogic);
-    console.log(this.output);
+
   }
-  //return output;
 }
 newComp = new Computer;
 
 
 class Game {
   constructor(choice) {
-    // this.computerChoice = [];
     this.choice = choice;
     this.computerChoice = newComp.output;
     console.log("Player plays:", choice);
     console.log("Computer plays:", this.computerChoice);
 
-    // this.options = ['rock', 'paper', 'scissors'] ths can probably go, not used
   }
 
   option(choice) {
-    if (this.choice = 'rock') {
-      Rock.logic;
+    if (this.choice === 'rock') {
+      let newRock = new Rock(
+      );
+      newRock.logic(this.choice, this.computerChoice);
       console.log("rock logic chosen")
-    } else if (this.choice = 'paper') {
-      Paper.logic;
+    } else if (this.choice === 'paper') {
+      Paper.logic();
+      console.log("paper logic chosen")
+
     } else {
-      Scissors.logic;
+      Scissors.logic();
+
+      console.log("scissor logic chosen")
     }
 
   }
-
-  // computer() {
-  //   let computerLogic = Math.ceil(Math.random() * 3);
-  //   if (computerLogic = 1) {
-  //     return this.computerChoice.push('rock');
-  //   } else if (computerLogic = 2) {
-  //     return this.computerChoice.push('paper');
-  //   } else {
-  //     return this.computerChoice.push('Scissors');
-  //   }
-  //   //return this.computerChoice;
-  //   console.log(this.computerLogic);
-  //   console.log(this.computerChoice);
-  // }
-
-
 }
 
 class Rock extends Game {
-  super(choice, computerChoice) { }
+  constructor(choice, computerChoice) {
+    super(choice, computerChoice)
+
+
+  }
+
 
   logic() {
-    //if else statements
-    console.log("this is the from the rock logic")
+
+    if (this.computerChoice === 'rock') {
+      console.log('Player Plays rock!')
+      console.log('Computer Plays rock!')
+      console.log("Tie!")
+    } else if (this.computerChoice === 'paper') {
+      console.log('Player Plays rock!')
+      console.log('Computer Plays paper!')
+      console.log("Computer wins.")
+    } else {
+      console.log('Player Plays rock!')
+      console.log('Computer Plays Scissors!')
+      console.log("Player wins.")
+    }
+
+
   }
 
 
@@ -82,11 +86,25 @@ class Rock extends Game {
 }
 
 class Paper extends Game {
-  super(choice, computerChoice) { }
+  constructor(choice, computerChoice) {
+    super(choice, computerChoice)
 
-  logic() {
-    //if else statements
-    console.log("this is the from the paper logic")
+  }
+
+  logic(choice, computerChoice) {
+    if (this.computerChoice === 'paper') {
+      console.log('Player Plays paper!')
+      console.log('Computer Plays paper!')
+      console.log("Tie!")
+    } else if (this.computerChoice === 'rock') {
+      console.log('Player Plays paper!')
+      console.log('Computer Plays paper!')
+      console.log("Computer wins.")
+    } else {
+      console.log('Player Plays scissors!')
+      console.log('Computer Plays paper!')
+      console.log("Player wins.")
+    }
   }
 
 
@@ -94,19 +112,36 @@ class Paper extends Game {
 }
 
 class Scissors extends Game {
-  super(choice, computerChoice) { }
+  constructor(choice, computerChoice) {
+    super(choice, computerChoice)
+
+
+  }
 
   logic() {
-    //if else statements
-    console.log("this is the from the scissors logic")
+    if (this.computerChoice === 'rock') {
+      console.log('Player Plays scissors!')
+      console.log('Computer Plays rock!')
+      console.log("Computer wins!")
+    } else if (this.computerChoice === 'paper') {
+      console.log('Player Plays scissors!')
+      console.log('Computer Plays paper!')
+      console.log("Player wins.")
+    } else {
+      console.log('Player Plays scissors!')
+      console.log('Computer Plays Scissors!')
+      console.log("Tie.")
+    }
   }
 
 
 
 }
+
+
 //instantiate new game
 newGame = new Game(choice);
-//newGame.computer();
+newGame.option();
 
 
 
